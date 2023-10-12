@@ -16,16 +16,9 @@
   <div id="target">Your time</div>
   <div id="counter">Count</div>
 
-  <button type="button"
-  class="btn btn-primary"
-  onclick="startTime()">
-  Start Timer</button>
+  <button type="button"class="btn btn-primary"onclick="startTime()">Start Timer</button>
 
-  <button type="button"
-  class="btn btn-primary"
-  onclick="recordTime()">
-  React</button>
-  
+  <button type="button"class="btn btn-primary" onclick="recordTime()"> React</button>
   
   <script> 
   var reactTime="";
@@ -33,18 +26,20 @@
     reactTime= Date.now();
     console.log(reactTime);
   }
-
+  var x =Math.floor(Math.random()*(11-2)+2);
+  var y=x*1000;
   function startTime(){
-   for (var i=0; i<9;i++){
+   for (var i=0; i<=x;i++){
+    
     setTimeout(function(count){
         return function(){
         document.getElementById("counter").innerHTML= "count: "+ count;
         };
-    }(8-i), i*1000);
+    }(x-i), i*1000);
    }
    setTimeout(
      function(){
-        if(reactTime==undefined){
+        if(reactTime===""){
             document.getElementById("target").innerHTML="Too Slow";
         }
         else{
@@ -52,22 +47,9 @@
             var timeElapsed =endTime- reactTime;
             document.getElementById("target").innerHTML= "Time was: "+ timeElapsed;
         }
-    },8000);
+    },y);
 
-   }
-
-  
-  function buttonPress1() {
-    setTimeout(function(){
-      document.getElementById('target').style.color = "red"
-    }, 3000)
-  }
-
-  function buttonPress2() {
-    setTimeout(()=>{
-      document.getElementById('target').style.color = "red"
-    }, 3000)
-  }
+}
   </script>
 
 </body>
